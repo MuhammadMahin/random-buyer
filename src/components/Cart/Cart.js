@@ -5,7 +5,7 @@ const Cart = ({cart}) => {
     if(cart.length <= 4){
         return (
             <div className='cart'>
-                <h4>Selected Phones</h4>
+                <h4>Selected iPhones</h4>
                   
                     <Item cart={cart}></Item>
                     <button className='btn1'>Choose one</button>
