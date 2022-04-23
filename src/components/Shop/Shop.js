@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Cart from '../Cart/Cart';
+
 import Product from '../Product/Product';
 import './Shop.css';
 
@@ -13,27 +15,37 @@ const Shop = () => {
     }, []);
 
     const handleAddToCart = (product) =>{
-        console.log(product);
+          
         // do not do this: cart.push(product);
         const newCart = [...cart, product];
         setCart(newCart);
     }
 
     return (
-        <div className='shop-container'>
+        <div>
+           <div className='title'>
+                <h1 className='header'>Random Buyers</h1>
+                <h2 className='header2'> Choose 4 Phones</h2>
+           </div>
+            <div className='shop-container'>
+         
+               
             <div className="products-container">
-                {
-                    products.map(product=><Product 
-                        key={product.id}
-                        product={product}
-                        handleAddToCart={handleAddToCart}
-                        ></Product>)
-                }
-            </div>
-            <div className="cart-container">
-                <h4>Order Summary</h4>
-                <p>Selected Items: {cart.length}</p>
-            </div>
+             {
+                 products.map(product=><Product 
+                     key={product.id}
+                     product={product}
+                     handleAddToCart={handleAddToCart}
+                     ></Product>)
+        
+        }
+             
+             </div>
+              <div className="cart-container">
+             <Cart cart={cart}></Cart>
+             
+              </div>
+             </div>
         </div>
     );
 };
